@@ -1,2 +1,2 @@
 # algo
-algorithm study record
+algorithm learn record

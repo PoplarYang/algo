@@ -28,6 +28,19 @@ func TestQuickSortByInPlace(t *testing.T) {
 	}
 }
 
+func TestQuickSortByThreeCenter(t *testing.T) {
+	var (
+		in = []int{10, 2, 7, 4, 1, 2}
+		expect = []int{1, 2, 2, 4, 7, 10}
+	)
+
+	actual := QuickSortByThreeCenter(in)
+	if ! IsSliceEqual(actual, expect) {
+		t.Errorf("QuickSortByThreeCenter(%d) is %d, but expect is %d", in, actual, expect)
+	}
+}
+
+
 func BenchmarkQuickSortByDC(b *testing.B) {
 	var in = []int{10, 2, 7, 4, 1, 2}
 	for n := 0; n < b.N; n++ {
@@ -39,6 +52,13 @@ func BenchmarkQuickSortByInPlace(b *testing.B) {
 	var in = []int{10, 2, 7, 4, 1, 2}
 	for n := 0; n < b.N; n++ {
 		QuickSortByInPlace(in)
+	}
+}
+
+func BenchmarkQuickSortByThreeCenter(b *testing.B) {
+	var in = []int{10, 2, 7, 4, 1, 2}
+	for n := 0; n < b.N; n++ {
+		QuickSortByThreeCenter(in)
 	}
 }
 
